@@ -7,6 +7,7 @@ from simulator import Simulator
 ## Parameters to tune..
 ALPHA = 0.7
 TOLERANCE = 0.01
+EPSILON = 1
 
 class LearningAgent(Agent):
     """ An agent that learns to drive in the Smartcab world.
@@ -85,16 +86,15 @@ class LearningAgent(Agent):
         
         # Set 'state' as a tuple of relevant data for the agent
         '''
-        USE THIS
         On a green light, a left turn is permitted if there is no oncoming traffic making a right turn or 
         coming straight through the intersection.
         On a red light, a right turn is permitted if no oncoming traffic is approaching from your left through 
         the intersection. 
         '''
-        if inputs['light'] == 'green':
-            state = [inputs['light'], inputs['oncoming']]
-        else:
-            state = [inputs['light'], inputs['left']]
+
+        ## We can drop the inputs['right'], as in both cases, it does not matter where the agent to the right is going
+        ## for the smartcab to make a decision
+        state = [inputs['light'], inputs['oncoming'], inputs['left']]
         state.append(waypoint)
         print state
         return tuple(state)
@@ -181,9 +181,11 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         # Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
 
-        # Update Q value as Q Value = Reward + (alpha) * Max Q Value for the state
-        # Q(state, action) = R(state, action) + Gamma * Max[Q(next state, all actions)]
-        self.Q[state][action] = reward + self.alpha * self.get_maxQ(state = state)
+        # Q(state, action) = Q(state, action) + alpha * ( R(state, action) +
+        #  (Gamma * Max[Q(next state, all actions)]) - Q(state, action) )
+        # Gamma = 0, therefore:
+        # Q(state, action) = Q(state, action) + aplha * ( R(state, action) - Q(state, action))
+        self.Q[state][action] = self.Q[state][action] + self.alpha *  (reward - self.Q[state][action])
         return
 
 
@@ -218,7 +220,7 @@ def run():
     #   learning   - set to True to force the driving agent to use Q-learning
     #    * epsilon - continuous value for the exploration factor, default is 1
     #    * alpha   - continuous value for the learning rate, default is 0.5
-    agent = env.create_agent(LearningAgent, learning = True, alpha = ALPHA)
+    agent = env.create_agent(LearningAgent, learning = True, alpha = ALPHA, epsilon = EPSILON)
     
     ##############
     # Follow the driving agent
