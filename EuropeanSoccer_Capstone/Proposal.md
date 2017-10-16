@@ -7,3 +7,8 @@
 
 
 
+### My notes
+https://github.com/sgoyal1012/UdacityNanodegreeSubmissions/blob/master/EuropeanSoccer_Capstone/Scribbe_Notes.md
+
+
+## Domain Background
