@@ -1,14 +1,32 @@
+## Existing kernels-->
 
-### Guidelines to write the proposal
+* https://www.kaggle.com/james852/match-outcome-prediction-in-football
+* https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
+* https://www.kaggle.com/petehodge/epl-weekly-predicting
 
-* https://github.com/udacity/machine-learning/blob/master/projects/capstone/capstone_proposal_template.md
+## Useful Links
+Dataset- https://www.kaggle.com/hugomathien/soccer
 
-* https://review.udacity.com/#!/rubrics/410/view
+* A good analysis- https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
 
+## IDEAS
 
+* USE PCA on both players and matches to see the most relevant features (think of the grocery project): 
+correlated features heat map.
+* Try different models.
+* The problem here is getting the best features.
 
-### My notes
-https://github.com/sgoyal1012/UdacityNanodegreeSubmissions/blob/master/EuropeanSoccer_Capstone/Scribbe_Notes.md
+## Questions
 
+### Who wins? (Benchmark seems ~53%). Can you beat the bookies? 
+  - Which team  will win the upcoming season? 
+  - Which is the most predicatble league?
+  - Make a predicted league table! Have every team play each other and Compare results from coming year as a test data and see positions. (Make a web app! ?). User selects a league and year, and you generate a table.
 
-## Domain Background
+### The probability of an upset?
+
+### Try clustering teams/players based on success/money/trophies.
+    - Silhouette coefficient for cluster efficiency
+
+### Red cards and racism
+
