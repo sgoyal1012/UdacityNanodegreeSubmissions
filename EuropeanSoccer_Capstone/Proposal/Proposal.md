@@ -7,8 +7,9 @@ October 18th, 2017
 ## Domain Background
 
 Football (or *soccer*) is the biggest global sport and is a fast-growing multibillion dollar industry; with an estimate of 27 billion dollars in terms of annual revenue for the football clubs [1]. With more and more money pouring into the sport, the betting industry for predicting the outcome of matches is worth a billions pounds every year [2]. The *ridiculous* amount of money can be summed in the chart below, that shows the amount of money clubs have paid to secure a football player's services (*I being a mere mortal find myself counting the number of zeros in these huge sums of money*).
-
-![The most expensive transfer fee over time](Images/TransferFeeChart.jpg)
+<p align="center">
+  <img src= Images/TransferFeeChart.jpg/ title="World record fee transfer over time">
+</p>
 
 Prediction of soccer matches is a tough problem. Predicting the exact scoreline is a near impossible task. The game involves emotional factors such as the passion of the crowd, how pumped the players are that day, players' personal lives; factors which are beyond measure. In this project, I wish to tackle the problem using factors we can indeed measure.
 
