@@ -39,7 +39,19 @@ correlated features heat map.
 ### Red cards and racism
 
 ## Application/UI
-
+### BUILD GREAT VISUALIZATIONS
 - A UI that accepts a year and a league; and predicts the table.
 - Plot on a world map, the leagues where one has to spend the most money.
 - Plot as a heat map, the world's most predictable league.
+
+## Existing kernels-->
+
+* https://www.kaggle.com/james852/match-outcome-prediction-in-football
+* https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
+* https://www.kaggle.com/petehodge/epl-weekly-predicting
+
+## Useful Links
+Dataset- https://www.kaggle.com/hugomathien/soccer
+
+* A good analysis- https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
+

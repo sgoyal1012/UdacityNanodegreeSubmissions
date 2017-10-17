@@ -1,32 +1,24 @@
-## Existing kernels-->
+# Machine Learning Engineer Nanodegree
 
-* https://www.kaggle.com/james852/match-outcome-prediction-in-football
-* https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
-* https://www.kaggle.com/petehodge/epl-weekly-predicting
+## Capstone Proposal
+Sahil Goyal
+October 18th, 2017
 
-## Useful Links
-Dataset- https://www.kaggle.com/hugomathien/soccer
+## Domain Background
 
-* A good analysis- https://www.kaggle.com/harvinderwazir/match-outcome-prediction-in-football
+Football (or *soccer*) is the biggest global sport and is a fast-growing multibillion dollar industry; with an estimate of 27 billion dollars in terms of annual revenue for the football clubs [1]. With more and more money pouring into the sport, the betting industry for predicting the outcome of matches is worth a billions pounds every year [2].
 
-## IDEAS
+![The most expensive transfer fee over time](Images/TransferFeeChart.jpg)
 
-* USE PCA on both players and matches to see the most relevant features (think of the grocery project): 
-correlated features heat map.
-* Try different models.
-* The problem here is getting the best features.
+Prediction of soccer matches is a tough problem. Predicting the exact scoreline is a near impossible task. The game involves emotional factors such as the passion of the crowd, how pumped the players are that day, players' personal lives; factors which are beyond measure. In this project, I wish to tackle the problem using factors we can indeed measure.
 
-## Questions
+### Personal Motivation
+I would divide by motivation to do this project into two reasons
 
-### Who wins? (Benchmark seems ~53%). Can you beat the bookies? 
-  - Which team  will win the upcoming season? 
-  - Which is the most predicatble league?
-  - Make a predicted league table! Have every team play each other and Compare results from coming year as a test data and see positions. (Make a web app! ?). User selects a league and year, and you generate a table.
+* ***My Interest and domain knowledge*** in this field. I follow European soccer 
 
-### The probability of an upset?
 
-### Try clustering teams/players based on success/money/trophies.
-    - Silhouette coefficient for cluster efficiency
 
-### Red cards and racism
-
+## References
+[1] [Call for Papers for a Special Issue in the Springer Journal] (http://static.springer.com/sgw/documents/1599268/application/pdf/MachineLearning-CallForPapers-MachineLearningForFootball-v15+%282%29.pdf)
+[2] [Football betting - the global gambling industry worth billions] (http://www.bbc.com/sport/football/24354124)
