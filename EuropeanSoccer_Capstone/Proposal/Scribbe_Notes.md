@@ -15,6 +15,9 @@ Dataset- https://www.kaggle.com/hugomathien/soccer
 correlated features heat map.
 * Try different models.
 * The problem here is getting the best features.
+  - Feature selection
+* The pull of ***star power*** - Messi, CR7, Bale, De Gea  
+- Adding features (no. of top ten players in the team, top 100 players)
 
 ## Questions
 
@@ -23,6 +26,10 @@ correlated features heat map.
   - Which is the most predicatble league?
   - Make a predicted league table! Have every team play each other and
   Compare results from coming year as a test data and see positions. (Make a web app! ?)
+  
+### From a fan's perspective
+- Model ticket prices, season ticket prices: compare with truth.
+- The pull of star power- real madrid vs barcelona is the most expensive
 
 ### The probability of an upset?
 
@@ -31,3 +38,8 @@ correlated features heat map.
 
 ### Red cards and racism
 
+## Application/UI
+
+- A UI that accepts a year and a league; and predicts the table.
+- Plot on a world map, the leagues where one has to spend the most money.
+- Plot as a heat map, the world's most predictable league.
