@@ -1,6 +1,6 @@
 # Machine Learning Engineer Nanodegree
 <p align="center">
-  <img src= Images/Udacity.png height="48", width="48">
+  <img src= Images/Udacity.png height="100">
 </p>
 
 ## Capstone Proposal
