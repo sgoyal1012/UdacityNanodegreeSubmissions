@@ -1,4 +1,7 @@
 # Machine Learning Engineer Nanodegree
+<p align="center">
+  <img src= Images/Udacity.png>
+</p>
 
 ## Capstone Proposal
 Sahil Goyal
@@ -8,7 +11,7 @@ October 18th, 2017
 
 Football (or *soccer*) is the biggest global sport and is a fast-growing multibillion dollar industry; with an estimate of 27 billion dollars in terms of annual revenue for the football clubs [1]. With more and more money pouring into the sport, the betting industry for predicting the outcome of matches is worth a billions pounds every year [2]. The *ridiculous* amount of money can be summed in the chart below, that shows the amount of money clubs have paid to secure a football player's services (*I being a mere mortal find myself counting the number of zeros in these huge sums of money*).
 <p align="center">
-  <img src= Images/TransferFeeChart.jpg/ title="World record transfer fee over time"><br>
+  <img src= Images/TransferFeeChart.jpg title="World record transfer fee over time"><br>
 	World record transfer fee over time
 </p>
 
@@ -30,7 +33,7 @@ Which is the most predicatble league?
 Make a predicted league table! Have every team play each other and Compare results from coming year as a test data and see positions. (Make a web app! ?)
 From a fan's perspective
 
-Model ticket prices, season ticket prices: compare with truth.
+Model ticket prices, season ticket prices: compare with truth.Ud
 The pull of star power- real madrid vs barcelona is the most expensive
 The probability of an upset?
 
@@ -41,4 +44,5 @@ Red cards and racism
 
 ## References
 [1] [Call for Papers for a Special Issue in the Springer Journal] (http://static.springer.com/sgw/documents/1599268/application/pdf/MachineLearning-CallForPapers-MachineLearningForFootball-v15+%282%29.pdf)
+
 [2] [Football betting - the global gambling industry worth billions] (http://www.bbc.com/sport/football/24354124)
