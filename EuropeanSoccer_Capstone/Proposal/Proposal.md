@@ -1,6 +1,6 @@
 # Machine Learning Engineer Nanodegree
 <p align="center">
-  <img src=Images/Udacity.png>
+  <img src="Udacity.png">
 </p>
 
 ## Capstone Proposal
@@ -15,7 +15,7 @@ Football (or *soccer*) is the biggest global sport and is a fast-growing multibi
 	World record transfer fee over time
 </p>
 
-Prediction of soccer matches is a tough problem. Predicting the exact scoreline is a near impossible task. *On the field* often defies *on paper*. So much so, in the 2011-12 season of the *English Premier League (EPL)*, it was not known who the champions would be until the last five minutes of a nine month long season [3]. In the 2015-16 season of EPL, at the beginning of the season it was more likely that Kim Kardashian would become the US president, than the eventual team *Leicester* winning the title. [4]
+Prediction of soccer matches is a tough problem. Predicting the exact scoreline is a near impossible task. *On the field* often defies *on paper*. So much so, in the 2011-12 season of the *English Premier League (EPL)*, it was not known who the champions would be until the last five minutes of a nine month long season [3]. In the 2015-16 season of EPL, at the beginning of the season it was more likely that *Kim Kardashian* would become the US president, than the eventual team *Leicester* winning the title. [4]
 
 The game involves emotional factors such as the passion of the crowd, how pumped the players are that day, players' personal lives; factors which are beyond measure. In this project, I wish to tackle the problem using factors we can indeed measure.
 
