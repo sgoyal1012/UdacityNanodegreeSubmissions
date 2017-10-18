@@ -37,7 +37,7 @@ I wish to find answers to a few of the following problems through this project:
 * Model players and teams; and assign them a quantifiable number that serves as a rating of skill. I would like to find the answer to the *pull of star power*; many people tune in to football matches to watch *Messi*, *Neymar* or *Ronaldo*. Note that the capability of players also affects the excitement surrouding football matches.
 
 ## Datasets and Inputs
-The dataset I will be using for this task is the European soccer database over at Kaggle [6]. The database contains data fron 25,000 matches; 10,000 players for the years 2008-2016, spread over 11 European countries. The matches are defined well in terms of data, with information about fouls, shots on target, possession etc. The dataset also contains betting odds from 11 different betting companies.; which will help me in evaluating my models.
+The dataset I will be using for this task is the European soccer database over at Kaggle [6]. The database contains data from 25,000 matches; 10,000 players for the years 2008-2016, spread over 11 European countries. The matches are defined well in terms of data, with information about fouls, shots on target, possession etc. The dataset also contains betting odds from 11 different betting companies.; which will help me in evaluating my models.
 
 The dataset contains attributes for both teams and matches, that I will be using to come up with a regression model to obtain a skill level rating.
 
@@ -46,7 +46,7 @@ The dataset is perfect for the questions I am trying to answer. Note that I inte
 ## Solution Statement
 Broadly speaking, I see my solution to be divided into four parts. Further details on my proposed soutions to each of the four parts is documented in the [project design](#project-design) section.
 
-* ***Data Preprocessing***: This dataset is spread across multiple files in the form of a SQL database, with some anomalies mentioned in the description. Apply techniques learnt in the course such as *feature scaling*, *one hot encoding* etc.
+* ***Data Preprocessing***: This dataset is spread across multiple files in the form of a SQL database, with some anomalies mentioned in the description. After loading the data and cleaning it up for sure, I will apply techniques learnt in the course such as *feature scaling*, *one hot encoding* etc.
 
 * ***Feature Selection***: Arguably the most important and exciting part for me. I would like to combine my domain knowledge and also use dimensionality reduction techniques to pick the best set of features.
 
@@ -68,19 +68,22 @@ Broadly speaking, I see my solution to be divided into four parts. Further detai
 
 * ***Cost of being a fan***: As stated in the section above, I would evaluate the difference between my financial modelling and the reality in a relative manner. 
 
-I have skimmed through a few existing kernels on the Kaggle page [8,9], that I might end up using to compare my performance. *Note that if I do end up using any ideas/code from any kernels on the page*, I will be sure to properly give credit where due.
+I have skimmed through a few existing kernels on the Kaggle page [8,9], that I might end up using to compare my performance. ***Note that if I do end up using any ideas/code from any kernels on the page, I will be sure to properly give credit where due.***
 
 ## Project Design
 I would like to be able to touch across all aspects of machine learning that I have learnt through this course.
 
 #### Data Preprocessing
-The dataset is in the form of a *sqlite* database. Analysis would require joins across multiple tables; wherein I will need to be careful to handle the cases of missing data/NaN values. As done in all of the Udacity projects, and I found it useful, I will be taking a few examples for each table and randomly analysing the different types of variables at my disposal.
+The dataset is in the form of a *sqlite* database. Analysis would require joins across multiple tables; wherein I will need to be careful to handle the cases of missing data/NaN values. As done in all of the Udacity projects, and I found it useful, I will be taking a few examples for each table and analysing the different types of variables at my disposal.
+
 The dataset contains a mix of categorial variables (eg. a team's *buildUpPlaySpeedClass*), continuos variables (eg.: a player's *attacking_work_rate*) and boolean variables (eg. if a team is playing at home or not). This will be followed by preparing the data for machine learning, through techniques such as *one hot encoding*, *feature scaling* etc. 
 
 #### Feature Selection
 This step is where I get to use my domain knowledge and dimensionality reduction techniques. I will be using the techniques I learnt in the customer segments project, to find correlated features; for eg. the *R2 score*. I will also analyse what to do with the outliers, if any. 
 Note that sometimes a single player can win a match for their team, therefore I think that adding features such as *player-in-top_10*: the number of players in the team that are in the top 10 players of the world; *player-in-top-100*: number of players in top 100, would help in improving the accuracy. Often having a star player has more effect than just his skill, he can lift the players around him and bring the best in them. After selecting the features for players, I will select the features for matches that will help me best analyze the result. 
+
 I will measure the effectiveness of these new features by creating a pseudo-team of the best 11 players from the database, and see if this All-stars team beats everyone else most of the time.
+
 To predict match excitement (from a neutral's perspective), I will select features such as *the number of shots on target*, *the number of red cards*, *the number of corners*, to name a few.
 
 
