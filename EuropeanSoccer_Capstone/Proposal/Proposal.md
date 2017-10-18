@@ -24,7 +24,7 @@ I would divide my motivation to do this project into three reasons:
 
 * ***My Interest and domain knowledge*** in this field. I follow European soccer with passion and interest. I would like to use my domain knowledge to come up with questions interesting to me, and help me solve those questions.
 * ***Feature selection***, the biggest take away for me from this nanodegree course is the importance of feature selection, and finding correlations between features. The project on customer segments gave me a chance to apply some techniques such as *PCA* to reduce dimensionality; and I would like to apply them to this problem, in conjunction with my domain knoweldge.
-* ***Visualization***, I am interesting in various ways we can visualize and create cool-looking visualizations, such as heat maps, layover over geo locations etc. I am hoping to use this project and come up with a few cool-looking visualizations [5]!
+* ***Visualization***, I am interested in the various ways we can visualize and create cool-looking visualizations, such as heat maps, layover over geo locations etc. I am hoping to use this project and come up with a few cool-looking visualizations [5]!
 
 ## Problem Statement
 
@@ -34,7 +34,7 @@ I wish to find answers to a few of the following problems through this project:
 
 * Cluster matches based on the excitement level and interest in the game; possibly use this to model ticket prices. I would guess that a match between *Real Madrid* and *Barcelona* would be the most expensive. What factors make fans pay more for a match? If I follow a certain team, how much money can I expect to shell out? 
 
-* Model players and teams; and assign them a quantifiable number that serves as a rating of skill. I would like to find the answer to the *pull of star power*; many people tune in to football matches to watch *Messi*, *Neymar* or *Ronaldo*. Note that the capability of players also affects the excitement surrouding football matches.
+* Model players and teams; and assign them a quantifiable number that serves as a rating of skill. I would like to find the answer to the *pull of star power*; many people tune in to football matches to watch *Messi*, *Neymar* or *Ronaldo*. Note that the capability of players also affects the excitement surrounding football matches.
 
 ## Datasets and Inputs
 The dataset I will be using for this task is the European soccer database over at Kaggle [6]. The database contains data from 25,000 matches; 10,000 players for the years 2008-2016, spread over 11 European countries. The matches are defined well in terms of data, with information about fouls, shots on target, possession etc. The dataset also contains betting odds from 11 different betting companies.; which will help me in evaluating my models.
@@ -46,7 +46,7 @@ The dataset is perfect for the questions I am trying to answer. Note that I inte
 ## Solution Statement
 Broadly speaking, I see my solution to be divided into four parts. Further details on my proposed soutions to each of the four parts is documented in the [project design](#project-design) section.
 
-* ***Data Preprocessing***: This dataset is spread across multiple files in the form of a SQL database, with some anomalies mentioned in the description. After loading the data and cleaning it up for sure, I will apply techniques learnt in the course such as *feature scaling*, *one hot encoding* etc.
+* ***Data Preprocessing***: This dataset is spread across multiple files in the form of a SQLite database, with some anomalies mentioned in the description. After loading the data and cleaning it up for sure, I will apply techniques learnt in the course such as *feature scaling*, *one hot encoding* etc.
 
 * ***Feature Selection***: Arguably the most important and exciting part for me. I would like to combine my domain knowledge and also use dimensionality reduction techniques to pick the best set of features.
 
@@ -59,7 +59,7 @@ Broadly speaking, I see my solution to be divided into four parts. Further detai
 
 * ***Player and team rating***: The dataset contains player and team ratings according to the models by the creators of *FIFA* video games. I will compare my regression models for team and player ratings to these ratings. Also, the top players in the world are widely known; when I cluster players based on the features I have selected, I would like to see that distinction between top players and average players.
 
-* ***Cost and season tickets***: Although the dataset does not have data for this; this is obtainable through a variet of sources [7]. While it might be not be possible to compare the actual numbers, I certainly can compare a relative ranking.
+* ***Cost and season tickets***: Although the dataset does not have data for this; this is obtainable through a variety of sources [7]. While it might be not be possible to compare the actual numbers, I certainly can compare a relative ranking in terms of prices.
 
 ## Evaluation Metrics
 * ***Match prediction***: The success rate of predicting matches correctly. Also I will be evaluating my performances vs the betting companies.
