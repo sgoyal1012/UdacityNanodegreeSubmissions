@@ -47,8 +47,8 @@ Red cards and racism
 ## References
 [1]  [Call for Papers for a Special Issue in the Springer Journal](http://static.springer.com/sgw/documents/1599268/application/pdf/MachineLearning-CallForPapers-MachineLearningForFootball-v15+%282%29.pdf)
 
-[2] [Football betting - the global gambling industry worth billions] (http://www.bbc.com/sport/football/24354124)
+[2]  [Football betting - the global gambling industry worth billions](http://www.bbc.com/sport/football/24354124)
 
-[3] [City beat QPR in the last five minutes] (http://www.dailymail.co.uk/sport/football/article-2143702/Manchester-City-win-Premier-League-QPR-survive.html)
+[3]  [City beat QPR in the last five minutes](http://www.dailymail.co.uk/sport/football/article-2143702/Manchester-City-win-Premier-League-QPR-survive.html)
 
-[4] [Things likelier than Leicester winning the league] (http://www.bbc.co.uk/newsbeat/article/36138413/10-things-bookies-thought-more-likely-than-leicester-winning-the-premier-league)
+[4]  [Things likelier than Leicester winning the league](http://www.bbc.co.uk/newsbeat/article/36138413/10-things-bookies-thought-more-likely-than-leicester-winning-the-premier-league)
