@@ -69,21 +69,26 @@ I have skimmed through a few existing kernels on the Kaggle page [8,9], that I m
 ## Project Design
 I would like to be able to touch across all aspects of machine learning that I have learnt through this course.
 
-* ***Data Preprocessing***: The dataset is in the form of a *sqlite* database. Analysis would require joins across multiple tables; wherein I will need to be careful to handle the cases of missing data/NaN values. As done in all of the Udacity projects, and I found it useful, I will be taking a few examples for each table and randomly analysing the different types of variables at my disposal.
+#### Data Preprocessing
+The dataset is in the form of a *sqlite* database. Analysis would require joins across multiple tables; wherein I will need to be careful to handle the cases of missing data/NaN values. As done in all of the Udacity projects, and I found it useful, I will be taking a few examples for each table and randomly analysing the different types of variables at my disposal.
 The dataset contains a mix of categorial variables (eg. a team's *buildUpPlaySpeedClass*), continuos variables (eg.: a player's *attacking_work_rate*) and boolean variables (eg. if a team is playing at home or not). This will be followed by preparing the data for machine learning, through techniques such as *one hot encoding*, *feature scaling* etc. 
 
-* ***Feature Selection***: This step is where I get to use my domain knowledge and dimensionality reduction techniques. I will be using the techniques I learnt in the customer segments project, to find correlated features; for eg. the *R2 score*. I will also analyse what to do with the outliers, if any. 
+#### Feature Selection
+This step is where I get to use my domain knowledge and dimensionality reduction techniques. I will be using the techniques I learnt in the customer segments project, to find correlated features; for eg. the *R2 score*. I will also analyse what to do with the outliers, if any. 
 Note that sometimes a single player can win a match for their team, therefore I think that adding features such as *player-in-top_10*: the number of players in the team that are in the top 10 players of the world; *player-in-top-100*: number of players in top 100, would help in improving the accuracy. Often having a star player has more effect than just his skill, he can lift the players around him and bring the best in them. After selecting the features for players, I will select the features for matches that will help me best analyze the result. 
 I will measure the effectiveness of these new features by creating a pseudo-team of the best 11 players from the database, and see if this All-stars team beats everyone else most of the time.
 To predict match excitement (from a neutral's perspective), I will select features such as *the number of shots on target*, *the number of red cards*, *the number of corners*, to name a few.
 
 
-* ***Model fitting and optimization***: Once the features have been selected; I will be trying out various supervised learning techniques to fit the data. I also intend to give deep learning a try in this section. Once deciding on a good model, I will work towards hyperparameter tuning; and reiterating on the feature selection step above with any findings in this step.
+#### Model fitting and optimization
+Once the features have been selected; I will be trying out various supervised learning models (*SVMs*, *Decision Trees*, *Ensemble methods* etc.) to fit the data. I also intend to give deep learning a try in this section. Once deciding on a good model, I will work towards hyperparameter tuning; and reiterating on the feature selection step above with any findings in this step.
 
-* ***Prediction results and visualizations***: In this section, I plan to draw some interesting conclusions through visualizations:
+#### Prediction results and visualizations 
+In this section, I plan to draw some interesting conclusions through visualizations:
+ 
  * The best model(s) for the problems I have tried to solve.
  * The evaluation of the accuracy of match predictions, and ratings regression model for the players.
- * Visualizations to anaswer questions on the *most predictable league*, *most exciting matches*, *most expensive clubs to follow* etc.
+ * Visualizations to answer questions on the *most predictable league*, *most exciting matches*, *most expensive clubs to follow* etc.
 
 I aim to use some of the techniques used in [5] to this end, teaching myself some python visualization techniques in the process.
 
