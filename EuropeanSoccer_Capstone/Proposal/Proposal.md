@@ -64,6 +64,10 @@ Broadly speaking, I see my solution to be divided into four parts. Further detai
 ## Evaluation Metrics
 * ***Match prediction***: The success rate of predicting matches correctly. Also I will be evaluating my performances vs the betting companies.
 
+* ***Player and team ratings***: Comparison of my regression models with the ones by *FIFA*, with metrics such as *R2 score*.
+
+* ***Cost of being a fan***: As stated in the section above, I would evaluate the difference between my financial modelling and the reality in a relative manner. 
+
 I have skimmed through a few existing kernels on the Kaggle page [8,9], that I might end up using to compare my performance. *Note that if I do end up using any ideas/code from any kernels on the page*, I will be sure to properly give credit where due.
 
 ## Project Design
@@ -81,7 +85,7 @@ To predict match excitement (from a neutral's perspective), I will select featur
 
 
 #### Model fitting and optimization
-Once the features have been selected; I will be trying out various supervised learning models (*SVMs*, *Decision Trees*, *Ensemble methods* etc.) to fit the data. I also intend to give deep learning a try in this section. Once deciding on a good model, I will work towards hyperparameter tuning; and reiterating on the feature selection step above with any findings in this step.
+Once the features have been selected; I will be trying out various supervised learning models (*SVMs*, *Decision Trees*, *Ensemble methods* etc.) to fit the data. I also intend to give deep learning a try in this section. Once deciding on a good model, I will work towards hyperparameter tuning using *Grid Search Cross Validation*; and reiterating on the feature selection step above with any findings in this step.
 
 #### Prediction results and visualizations 
 In this section, I plan to draw some interesting conclusions through visualizations:
