@@ -45,7 +45,7 @@ Try clustering teams/players based on success/money/trophies.
 Red cards and racism
 
 ## References
-[1] [Call for Papers for a Special Issue in the Springer Journal] (http://static.springer.com/sgw/documents/1599268/application/pdf/MachineLearning-CallForPapers-MachineLearningForFootball-v15+%282%29.pdf)
+[Call for Papers for a Special Issue in the Springer Journal] (http://static.springer.com/sgw/documents/1599268/application/pdf/MachineLearning-CallForPapers-MachineLearningForFootball-v15+%282%29.pdf)
 
 [2] [Football betting - the global gambling industry worth billions] (http://www.bbc.com/sport/football/24354124)
 
