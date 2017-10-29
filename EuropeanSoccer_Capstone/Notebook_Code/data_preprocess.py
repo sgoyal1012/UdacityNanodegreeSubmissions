@@ -35,6 +35,7 @@ def classify_players(player_df):
 
 
 def home_advantage(matches_df, conn):
+    # TODO: Convert to DataFrama and Plot
    country_id_to_num_matches = matches_df.groupby(['country_id']).size().to_dict()
    countries_df = sql_to_dataframe(conn, select_all_query_table("Country"))
    for country_id in country_id_to_num_matches:
