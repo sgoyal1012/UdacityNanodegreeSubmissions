@@ -4,7 +4,7 @@ import sqlite3
 import pandas as pd
 
 
-def compress_and_open_sqlite():
+def uncompress_and_open_sqlite():
   zip = zipfile.ZipFile(INPUTFILE_DIR + INPUTZIPFILE)
   zip.extractall(path=INPUTFILE_DIR)
   conn = sqlite3.connect(INPUTFILE_DIR + DATABASENAME)
@@ -28,12 +28,16 @@ def desc_table(table_df, table_name):
   print SEPARATOR
   print "For table " + table_name + " there are " + str(table_df.shape[0]) + \
         " entries with "+ str(table_df.shape[1]) + " features"
-
+  print table_df.columns.tolist()
+  print SEPARATOR
 
 if __name__ == '__main__':
     conn = compress_and_open_sqlite()
-    players_df = sql_to_dataframe(conn, select_all_query_table("Player"))
-    desc_table(players_df, "Player")
-
+    players_df = sql_to_dataframe(conn, select_all_query_table("Player_Attributes"))
+    desc_table(players_df, "Player_Attributes")
+    teams_df = sql_to_dataframe(conn, select_all_query_table("Team_Attributes"))
+    desc_table(teams_df, "Team_Attributes")
+    teams_df = sql_to_dataframe(conn, select_all_query_table("Match"))
+    desc_table(teams_df, "Match")
 
 
