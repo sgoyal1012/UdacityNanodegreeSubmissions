@@ -19,11 +19,6 @@ def execute_query_print_results(conn, sql_query):
     print row
 
 
-def sql_to_dataframe(conn, sql):
-  df = pd.read_sql_query(sql, conn)
-  return df
-
-
 def desc_table(table_df, table_name):
   print SEPARATOR
   print "For table " + table_name + " there are " + str(table_df.shape[0]) + \
@@ -38,3 +33,16 @@ Classify players into midfield, defense, attacking
 def classify_players(player_df):
   return None
 
+
+def home_advantage(matches_df, conn):
+   country_id_to_num_matches = matches_df.groupby(['country_id']).size().to_dict()
+   countries_df = sql_to_dataframe(conn, select_all_query_table("Country"))
+   for country_id in country_id_to_num_matches:
+     print map_country_to_name(countries_df, country_id).to_string(), " :", str(country_id_to_num_matches[country_id])
+
+
+
+if __name__ == '__main__':
+  conn = uncompress_and_open_sqlite()
+  matches_df = sql_to_dataframe(conn, select_all_query_table("Match"))
+  home_advantage(matches_df=matches_df, conn = conn)
