@@ -31,13 +31,10 @@ def desc_table(table_df, table_name):
   print table_df.columns.tolist()
   print SEPARATOR
 
-if __name__ == '__main__':
-    conn = compress_and_open_sqlite()
-    players_df = sql_to_dataframe(conn, select_all_query_table("Player_Attributes"))
-    desc_table(players_df, "Player_Attributes")
-    teams_df = sql_to_dataframe(conn, select_all_query_table("Team_Attributes"))
-    desc_table(teams_df, "Team_Attributes")
-    teams_df = sql_to_dataframe(conn, select_all_query_table("Match"))
-    desc_table(teams_df, "Match")
 
+'''
+Classify players into midfield, defense, attacking
+'''
+def classify_players(player_df):
+  return None
 
