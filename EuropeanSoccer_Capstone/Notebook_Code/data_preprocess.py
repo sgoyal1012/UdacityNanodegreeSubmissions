@@ -42,6 +42,13 @@ def home_advantage(matches_df, conn):
      print map_country_to_name(countries_df, country_id).to_string(), " :", str(country_id_to_num_matches[country_id])
 
 
+def players_to_work_rate(players_ratings_label, conn, player_name):
+  player_names_df = sql_to_dataframe(conn, select_all_query_table("Player"))
+  player_join_df = pd.merge(players_ratings_label, player_names_df, on='player_api_id', how='outer')
+  COLUMNS_OF_INTEREST = ['player_name', 'finishing', 'sliding_tackle', 'gk_reflexes']
+  my_player_df = (player_join_df[player_join_df['player_name'].str.contains(player_name)])
+  most_recent_date = my_player_df['date'].max()
+  return (my_player_df[my_player_df['date']==most_recent_date])[COLUMNS_OF_INTEREST]
 
 if __name__ == '__main__':
   conn = uncompress_and_open_sqlite()
