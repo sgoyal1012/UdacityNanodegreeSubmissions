@@ -21,6 +21,7 @@ def player_to_player_type(players_skills, player_names_df, player_name,
   latest_df = my_player_df[my_player_df['date'] == most_recent_date]
   latest_skills_df = latest_df[['finishing', 'sliding_tackle',
                                   'gk_reflexes', 'short_passing']]
+  # TODO: Conver this to lambda function; see matches.result method
   latest_skills_df['player_type'] = latest_skills_df.idxmax(axis=1)
   latest_skills_df['player_name'] = player_name
   latest_skills_df['player_type'] = np.where(latest_skills_df['player_type'] ==
