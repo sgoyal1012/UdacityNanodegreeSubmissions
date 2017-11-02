@@ -44,6 +44,7 @@ def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKIL
 
   if (n == 0):
     print "Zero players of type! CHECK"
+    return 0
     raise Exception
   else:
     type_rating = ratings_sum/n
@@ -64,4 +65,6 @@ def single_match_rating(match_df, players_ratings_label, SKILL_COLUMNS, players_
                                                    players_skills=players_skills,SKILL_COLUMNS=SKILL_COLUMNS,
                                                    players_ratings_label=players_ratings_label, last_date=last_date,
                                                    team=type))
-      match_df[FEATURE] = rating
+      #match_df[FEATURE] = rating
+      print rating
+      #return rating
