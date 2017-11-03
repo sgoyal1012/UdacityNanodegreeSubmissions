@@ -30,6 +30,9 @@ HOME_PLAYER_COLUMNS = ['home_player_1', 'home_player_2', 'home_player_3',
                        "home_player_4", "home_player_5", "home_player_6",
                        "home_player_7", "home_player_8", "home_player_9",
                        "home_player_10", "home_player_11"]
+
+PLAYER_TYPES = ['Attacker', 'Defender', 'Goalkeeper', 'Midfielder']
+
 import pandas as pd
 
 def select_all_query_table(table_name):

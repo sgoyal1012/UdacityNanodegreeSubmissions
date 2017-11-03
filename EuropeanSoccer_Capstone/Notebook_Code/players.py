@@ -46,18 +46,20 @@ def player_api_id_to_player_type(players_skills, COLUMNS_OF_INTEREST, player_api
   most_recent_date = my_player_df['date'].max()
   latest_df = my_player_df[my_player_df['date'] == most_recent_date]
   latest_skills_df = latest_df[COLUMNS_OF_INTEREST]
-  # TODO: Convert this to lambda function; see matches.result method
   latest_skills_df['player_type'] = latest_skills_df.idxmax(axis=1)
-  latest_skills_df['player_type'] = np.where(latest_skills_df['player_type'] ==
-                                             'finishing', 'Attacker', latest_skills_df['player_type'])
-  latest_skills_df['player_type'] = np.where(latest_skills_df['player_type'] ==
-                                             'short_passing', 'Midfielder', latest_skills_df['player_type'])
-  latest_skills_df['player_type'] = np.where(latest_skills_df['player_type'] ==
-                                             'sliding_tackle', 'Defender', latest_skills_df['player_type'])
-  latest_skills_df['player_type'] = np.where(latest_skills_df['player_type'] ==
-                                             'gk_reflexes', 'Goalkeeper', latest_skills_df['player_type'])
+  max_skill = latest_skills_df['player_type'].values[0]
+  if max_skill == 'finishing':
+    return 'Attacker'
 
-  return latest_skills_df[['player_type']]
+  if max_skill == 'sliding_tackle':
+    return 'Defender'
+
+  if max_skill == 'short_passing':
+    return 'Midfielder'
+
+  if max_skill == 'gk_reflexes':
+    return 'Goalkeeper'
+
 
 def player_rating(player_api_id, last_date, players_ratings_label):
   """
