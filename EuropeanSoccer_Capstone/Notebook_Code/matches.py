@@ -50,6 +50,8 @@ def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKIL
 def single_match_rating(match_df, players_ratings_label,
                       SKILL_COLUMNS, players_skills, player_type_input, team_type ):
   last_date=match_df['date'].split(' ')[0]
+  if match_df['id'] % 100 == 0:
+    print "Done with " + str(match_df['id']) + "samples"
   rating = (get_player_ratings_by_type(match_df = match_df , player_type_input=player_type_input,
                                                players_skills=players_skills,SKILL_COLUMNS=SKILL_COLUMNS,
                                                players_ratings_label=players_ratings_label, last_date=last_date,

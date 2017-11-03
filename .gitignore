@@ -3,5 +3,6 @@
 .idea/
 *.sqlite
 *.pyc
+*.csv
 EuropeanSoccer_Capstone/Notebook_Code/matches.csv
 
