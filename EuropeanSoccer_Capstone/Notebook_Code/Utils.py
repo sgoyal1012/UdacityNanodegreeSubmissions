@@ -33,6 +33,10 @@ HOME_PLAYER_COLUMNS = ['home_player_1', 'home_player_2', 'home_player_3',
 
 PLAYER_TYPES = ['Attacker', 'Defender', 'Goalkeeper', 'Midfielder']
 
+# TODO: Move SKILL COLUMNS to Utils.py
+SKILL_COLUMNS = ['finishing', 'sliding_tackle',
+                 'gk_reflexes', 'short_passing']
+
 import pandas as pd
 
 def select_all_query_table(table_name):

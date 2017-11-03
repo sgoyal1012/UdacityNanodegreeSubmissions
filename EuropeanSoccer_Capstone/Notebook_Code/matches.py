@@ -22,17 +22,11 @@ def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKIL
     PLAYER_COLUMNS = AWAY_PLAYER_COLUMNS
   else:
     PLAYER_COLUMNS = HOME_PLAYER_COLUMNS
-  for AWAY_PLAYER_COLUMN in PLAYER_COLUMNS:
-    player_api_id = match_df[AWAY_PLAYER_COLUMN]
-    if math.isnan(player_api_id):
-      print "Found a nan"
-      continue
-    player_type = players.player_api_id_to_player_type(players_skills=players_skills,
-                  COLUMNS_OF_INTEREST= SKILL_COLUMNS, player_api_id = player_api_id)
-    #print player_type['player_type'].values[0]
-    if player_type not in PLAYER_TYPES:
-      print "Bad category! " + player_type
-      raise Exception
+  for PLAYER in PLAYER_COLUMNS:
+    player_api_id = match_df[PLAYER]
+    # TODO: Get from dict
+    
+    player_type =
     if player_type == player_type_input:
       n =n + 1
       rating_df = players.player_rating(player_api_id = player_api_id,
