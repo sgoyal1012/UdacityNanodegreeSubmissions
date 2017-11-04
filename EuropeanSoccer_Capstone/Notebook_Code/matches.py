@@ -13,7 +13,7 @@ def result(match_df):
     return 'AWAY_WIN'
 
 
-def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKILL_COLUMNS,
+def get_player_ratings_by_type(match_df, player_type_input, player_to_player_type_dict,
     players_ratings_label, last_date, team):
   # Away Team First
   n = 0
@@ -25,8 +25,10 @@ def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKIL
   for PLAYER in PLAYER_COLUMNS:
     player_api_id = match_df[PLAYER]
     # TODO: Get from dict
-    
-    player_type =
+    player_type = player_to_player_type_dict[str(int(player_api_id))]
+    if player_type not in PLAYER_TYPES:
+      print "Unknown player type " + player_type
+      raise Exception
     if player_type == player_type_input:
       n =n + 1
       rating_df = players.player_rating(player_api_id = player_api_id,
@@ -42,12 +44,12 @@ def get_player_ratings_by_type(match_df, player_type_input, players_skills, SKIL
 
 
 def single_match_rating(match_df, players_ratings_label,
-                      SKILL_COLUMNS, players_skills, player_type_input, team_type ):
+          player_to_player_type_dict, player_type_input, team_type ):
   last_date=match_df['date'].split(' ')[0]
-  if match_df['id'] % 100 == 0:
+  if match_df[0] % 1000 == 0:
     print "Done with " + str(match_df['id']) + "samples"
   rating = (get_player_ratings_by_type(match_df = match_df , player_type_input=player_type_input,
-                                               players_skills=players_skills,SKILL_COLUMNS=SKILL_COLUMNS,
+                                              player_to_player_type_dict=player_to_player_type_dict,
                                                players_ratings_label=players_ratings_label, last_date=last_date,
                                                team=team_type))
 
