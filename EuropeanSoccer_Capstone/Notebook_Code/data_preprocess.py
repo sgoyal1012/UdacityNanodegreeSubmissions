@@ -36,7 +36,7 @@ def home_advantage(matches_df, conn):
   grouped_df = country_id_to_num_matches.\
     groupby(['country_id'], as_index=False).agg({'result_label':'count'}).rename(columns={'result_label': 'matches_per_country'})
 
-  win_df = country_id_to_num_matches[country_id_to_num_matches['result_label'] == 'HOME_WIN']
+  win_df = country_id_to_num_matches[country_id_to_num_matches['result_label']=='HOME_WIN']
   grouped_home_df = win_df. \
     groupby(['country_id'], as_index=False).agg({'result_label':'count'}).rename(columns={'result_label': 'home_wins_per_country'})
   join_df = pd.merge(grouped_df, grouped_home_df, on='country_id',
