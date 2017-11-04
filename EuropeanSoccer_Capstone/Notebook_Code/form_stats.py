@@ -19,7 +19,7 @@ def home_team_all_time_home_record(match_df, full_df):
 
 
 '''
-Function to get the away record (win rate) for the away team prior to this date today; FOR THIS SEASON
+Function to get the home record (win rate) for the home team prior to this date today; FOR THIS SEASON
 '''
 def home_team_this_season_home_record(match_df, full_df):
   all_team_home_matches_this_season = full_df[(match_df['date'] >
@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
   print "Getting home win rate this season"
   get_home_win_rate_this_season = partial(home_team_this_season_home_record, full_df=all_features_df)
-  match_sample['AWAY_WIN_RATE_THIS_SEASON'] = match_sample.apply(get_home_win_rate_this_season, axis = 1)
+  match_sample['HOME_WIN_RATE_THIS_SEASON'] = match_sample.apply(get_home_win_rate_this_season, axis = 1)
 
   print "Getting away win rate all time"
   get_away_win_rate = partial(away_team_all_time_away_record, full_df=all_features_df)
