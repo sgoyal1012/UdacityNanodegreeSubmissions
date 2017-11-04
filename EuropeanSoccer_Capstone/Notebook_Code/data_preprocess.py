@@ -50,10 +50,9 @@ def home_advantage(matches_df, conn):
   return join_df_name[['name', 'percentage_home_win']]
 
 
-def get_team_name_to_team_api_id_dict():
-  team_df = sql_to_dataframe(conn, select_all_query_table("Team"))
-  team_name_to_team_api_id = dict(zip( team_df.team_long_name, team_df.team_fifa_api_id))
-  print team_name_to_team_api_id['FC Barcelona']
+def get_team_name_to_team_api_id_dict(team_df):
+  team_name_to_team_api_id = dict(zip( team_df.team_long_name, team_df.team_api_id))
+  return team_name_to_team_api_id
 
 
 if __name__ == '__main__':
