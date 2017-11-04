@@ -2,7 +2,7 @@ import sqlite3
 import zipfile
 
 import pandas as pd
-
+import json
 from Utils import *
 from players import *
 
@@ -50,8 +50,14 @@ def home_advantage(matches_df, conn):
   return join_df_name[['name', 'percentage_home_win']]
 
 
+def get_team_name_to_team_api_id_dict():
+  team_df = sql_to_dataframe(conn, select_all_query_table("Team"))
+  team_name_to_team_api_id = dict(zip( team_df.team_long_name, team_df.team_fifa_api_id))
+  print team_name_to_team_api_id['FC Barcelona']
+
 
 if __name__ == '__main__':
   conn = uncompress_and_open_sqlite()
-  matches_df = sql_to_dataframe(conn, select_all_query_table("Match"))
-  home_advantage(matches_df=matches_df, conn=conn)
+  get_team_name_to_team_api_id_dict()
+
+
