@@ -54,3 +54,44 @@ def single_match_rating(match_df, players_ratings_label,
                                                team=team_type))
 
   return rating
+
+
+def top_players_in_team(match_df, players_ratings_label, team_type, TOP_PLAYER_THRESHOLD):
+  if match_df[0] % 1000 == 0:
+    print "Done with " + str(match_df['id']) + "samples"
+  if team_type == 'away':
+    PLAYER_COLUMNS = AWAY_PLAYER_COLUMNS
+  else:
+    PLAYER_COLUMNS = HOME_PLAYER_COLUMNS
+
+  total_top_players = 0
+  last_date=match_df['date'].split(' ')[0]
+  for PLAYER in PLAYER_COLUMNS:
+    player_api_id = match_df[PLAYER]
+    rating_df = players.player_rating(player_api_id = player_api_id,
+                                      last_date=last_date,
+                                      players_ratings_label=players_ratings_label)
+    if rating_df['overall_rating'].values[0] >= TOP_PLAYER_THRESHOLD:
+      total_top_players = total_top_players + 1
+    return total_top_players
+
+
+def bottom_players_in_team(match_df, players_ratings_label, team_type, BOTTOM_PLAYER_THRESHOLD):
+  if match_df[0] % 1000 == 0:
+    print "Done with " + str(match_df['id']) + "samples"
+
+  if team_type == 'away':
+    PLAYER_COLUMNS = AWAY_PLAYER_COLUMNS
+  else:
+    PLAYER_COLUMNS = HOME_PLAYER_COLUMNS
+
+  total_bottom_players = 0
+  last_date=match_df['date'].split(' ')[0]
+  for PLAYER in PLAYER_COLUMNS:
+    player_api_id = match_df[PLAYER]
+    rating_df = players.player_rating(player_api_id = player_api_id,
+                                      last_date=last_date,
+                                      players_ratings_label=players_ratings_label)
+    if rating_df['overall_rating'].values[0] <= BOTTOM_PLAYER_THRESHOLD:
+      total_bottom_players = total_bottom_players + 1
+    return total_bottom_players

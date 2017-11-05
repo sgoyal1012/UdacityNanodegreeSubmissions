@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from functools import partial
+import sys
 
 '''
 Function to get the home record (win rate) for the home team prior to the date today
@@ -137,45 +138,62 @@ def head_to_head(match_df, full_df, value):
   else:
     return draw_ratio
 
+
+def form_guide_this_season(match_df, full_df, team_type, LOOKBACK_DAYS = 5):
+  if team_type == 'home':
+    team_api_id = match_df['home_team_api_id']
+  else:
+    team_api_id = match_df['away_team_api_id']
+
+  # Matches that contain this team
+  this_team_matches_this_season_before_today = full_df[(full_df['season'] == match_df['season']) &
+                                           ( (full_df['home_team_api_id'] == team_api_id) |
+                                             (full_df['away_team_api_id'] == team_api_id)) &
+                                           (match_df['date'] > full_df['date']) ]
+
+  # Sort in descending
+  this_team_matches_this_season_before_today = this_team_matches_this_season_before_today.sort_values('date', ascending=False)
+  # Not enough history
+  if this_team_matches_this_season_before_today.shape[0] < LOOKBACK_DAYS:
+    return np.nan
+  else:
+    form_guide_string = ""
+    this_team_last_five_matches = this_team_matches_this_season_before_today.head(n=LOOKBACK_DAYS)
+    for index,row in this_team_last_five_matches.iterrows():
+      # Draw-does not matter
+      if row['result_label'] == 'DRAW':
+        form_guide_string = form_guide_string + 'D'
+      # Playing at home
+      elif row['home_team_api_id'] == team_api_id:
+        if row['result_label'] == 'HOME_WIN':
+          form_guide_string = form_guide_string + 'W'
+        else:
+          form_guide_string = form_guide_string + 'L'
+      # Playing away
+      elif row['away_team_api_id'] == team_api_id:
+        if row['result_label'] == 'HOME_WIN':
+          form_guide_string = form_guide_string + 'L'
+        else:
+          form_guide_string = form_guide_string + 'W'
+      else:
+        print "Something went horribly wrong :(, check logic"
+        raise Exception
+
+    return form_guide_string
+
+
 if __name__ == '__main__':
-  all_features_df = pd.read_csv('Data_Structures/MATCH_FEATURES.csv')
+  all_features_df = pd.read_csv('Data_Structures/ALL_MATCH_FEATURES.csv')
   FORM_STATS_FEATURES = ['match_api_id', 'home_team_api_id', 'away_team_api_id',
                        'season', 'date', 'result_label']
   all_features_df['date'] = pd.to_datetime(all_features_df['date'])
-
   match_sample = all_features_df
 
-  print "Getting head to head home win rate"
-  get_head_to_head = partial(head_to_head, full_df=all_features_df, value = "Home Win")
-  match_sample['HEAD_2_HEAD_HOME_TEAM_WINS'] = match_sample.apply(get_head_to_head, axis = 1)
+  print "Getting home team's form guide for the last five matches of the season"
+  home_team_form_guide_this_season = partial(form_guide_this_season, full_df=all_features_df, team_type = "home", LOOKBACK_DAYS = 5)
+  match_sample['HOME_TEAM_FORM_GUIDE'] = match_sample.apply(home_team_form_guide_this_season, axis = 1)
 
-  print "Getting head to head home loss rate"
-  get_head_to_head = partial(head_to_head, full_df=all_features_df, value = "Home Loss")
-  match_sample['HEAD_2_HEAD_HOME_TEAM_LOSS'] = match_sample.apply(get_head_to_head, axis = 1)
-
-  print "Getting head to head draw rate"
-  get_head_to_head = partial(head_to_head, full_df=all_features_df, value = "Draw")
-  match_sample['HEAD_2_HEAD_DRAW'] = match_sample.apply(get_head_to_head, axis = 1)
-
-  print "Getting home win rate all time"
-  get_home_win_rate = partial(home_team_all_time_home_record, full_df=all_features_df)
-  match_sample['HOME_WIN_RATE'] = match_sample.apply(get_home_win_rate, axis = 1)
-
-  print "Getting home win rate this season"
-  get_home_win_rate_this_season = partial(home_team_this_season_home_record, full_df=all_features_df)
-  match_sample['HOME_WIN_RATE_THIS_SEASON'] = match_sample.apply(get_home_win_rate_this_season, axis = 1)
-
-  print "Getting away win rate all time"
-  get_away_win_rate = partial(away_team_all_time_away_record, full_df=all_features_df)
-  match_sample['AWAY_WIN_RATE'] = match_sample.apply(get_away_win_rate, axis = 1)
-
-  print "Getting away win rate this season"
-  get_away_win_rate_this_season = partial(away_team_this_season_away_record, full_df=all_features_df)
-  match_sample['AWAY_WIN_RATE_THIS_SEASON'] = match_sample.apply(get_away_win_rate_this_season, axis = 1)
-
-  print "Getting away team's win rate AT THIS GROUND"
-  get_away_win_rate_at_this_ground = partial(away_team_all_time_away_record_at_this_ground, full_df=all_features_df)
-  match_sample['AWAY_WIN_RATE_AT_THIS_GROUND'] = match_sample.apply(get_away_win_rate_at_this_ground, axis = 1)
-
-
-  match_sample.to_csv('Data_Structures/form_numbers.csv')
+  print "Getting away team's form guide for the last five matches of the season""
+  away_team_form_guide_this_season = partial(form_guide_this_season, full_df=all_features_df, team_type = "away", LOOKBACK_DAYS = 5)
+  match_sample['AWAY_TEAM_FORM_GUIDE'] = match_sample.apply(away_team_form_guide_this_season, axis = 1)
+  match_sample.to_csv('ALL_MATCH_FEATURES_2.csv')
