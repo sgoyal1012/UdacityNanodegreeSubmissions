@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 '''
 Function to fill nan for the teams' head to head home team win rate
 '''
@@ -151,3 +151,40 @@ def fill_nan_away_team_win_rate_all_time_at_this_ground(match_df, full_df):
       mean_away_win_rate = all_away_matches['AWAY_WIN_RATE'].mean(skipna=True)
     return mean_away_win_rate
 
+'''
+Function to fill nan for the a team's form guide. We just get the most common form guide
+and replace np.nan with it
+'''
+def fill_nan_form_guide(match_df, full_df, team_type, all_possibility):
+  if team_type == 'home':
+    value = match_df['HOME_TEAM_FORM_GUIDE']
+  else:
+    value = match_df['AWAY_TEAM_FORM_GUIDE']
+  if not pd.isnull((value)):
+    return value
+  else:
+    if team_type == 'home':
+      team_api_id = match_df['home_team_api_id']
+    else:
+      team_api_id = match_df['away_team_api_id']
+
+    # Matches that contain this team
+    this_team_all_matches_this_season_before_today = full_df[(full_df['season'] == match_df['season']) &
+                                                       ( (full_df['home_team_api_id'] == team_api_id) |
+                                                         (full_df['away_team_api_id'] == team_api_id))]
+    form_guide_list_this_team = list()
+    for index, row in this_team_all_matches_this_season_before_today.iterrows():
+      if row['home_team_api_id'] == team_api_id:
+        if not pd.isnull(row['HOME_TEAM_FORM_GUIDE']):
+          form_guide_list_this_team.append(row['HOME_TEAM_FORM_GUIDE'])
+      else:
+        if not pd.isnull(row['AWAY_TEAM_FORM_GUIDE']):
+          form_guide_list_this_team.append(row['AWAY_TEAM_FORM_GUIDE'])
+    if len(form_guide_list_this_team) == 0:
+      import random
+      return random.choice(all_possibility)
+    from collections import Counter
+    c = Counter(form_guide_list_this_team)
+    #print c
+    #print c.most_common(1)[0][0]
+    return c.most_common(1)[0][0]
