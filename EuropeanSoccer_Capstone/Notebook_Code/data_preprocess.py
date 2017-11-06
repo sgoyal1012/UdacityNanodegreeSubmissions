@@ -54,6 +54,9 @@ def get_team_name_to_team_api_id_dict(team_df):
   team_name_to_team_api_id = dict(zip( team_df.team_long_name, team_df.team_api_id))
   return team_name_to_team_api_id
 
+def get_team_api_dict_to_team_name(team_df):
+  team_api_id_to_team_name = dict(zip(team_df.team_api_id, team_df.team_long_name))
+  return team_api_id_to_team_name
 
 if __name__ == '__main__':
   conn = uncompress_and_open_sqlite()
