@@ -57,7 +57,7 @@ def single_match_rating(match_df, players_ratings_label,
 
 
 def top_players_in_team(match_df, players_ratings_label, team_type, TOP_PLAYER_THRESHOLD):
-  if match_df[0] % 1000 == 0:
+  if match_df[0] % 100 == 0:
     print "Done with " + str(match_df['id']) + "samples"
   if team_type == 'away':
     PLAYER_COLUMNS = AWAY_PLAYER_COLUMNS
@@ -73,11 +73,11 @@ def top_players_in_team(match_df, players_ratings_label, team_type, TOP_PLAYER_T
                                       players_ratings_label=players_ratings_label)
     if rating_df['overall_rating'].values[0] >= TOP_PLAYER_THRESHOLD:
       total_top_players = total_top_players + 1
-    return total_top_players
+  return total_top_players
 
 
 def bottom_players_in_team(match_df, players_ratings_label, team_type, BOTTOM_PLAYER_THRESHOLD):
-  if match_df[0] % 1000 == 0:
+  if match_df[0] % 100 == 0:
     print "Done with " + str(match_df['id']) + "samples"
 
   if team_type == 'away':
@@ -94,4 +94,4 @@ def bottom_players_in_team(match_df, players_ratings_label, team_type, BOTTOM_PL
                                       players_ratings_label=players_ratings_label)
     if rating_df['overall_rating'].values[0] <= BOTTOM_PLAYER_THRESHOLD:
       total_bottom_players = total_bottom_players + 1
-    return total_bottom_players
+  return total_bottom_players
