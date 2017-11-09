@@ -48,7 +48,7 @@ def distribution(data, transformed = False):
     fig.show()
 
 
-def evaluate(results, accuracy, f1):
+def evaluate(results, accuracy):
     """
     Visualization code to display results of various learners.
     
@@ -97,8 +97,6 @@ def evaluate(results, accuracy, f1):
     # Add horizontal lines for naive predictors
     ax[0, 1].axhline(y = accuracy, xmin = -0.1, xmax = 3.0, linewidth = 1, color = 'k', linestyle = 'dashed')
     ax[1, 1].axhline(y = accuracy, xmin = -0.1, xmax = 3.0, linewidth = 1, color = 'k', linestyle = 'dashed')
-    ax[0, 2].axhline(y = f1, xmin = -0.1, xmax = 3.0, linewidth = 1, color = 'k', linestyle = 'dashed')
-    ax[1, 2].axhline(y = f1, xmin = -0.1, xmax = 3.0, linewidth = 1, color = 'k', linestyle = 'dashed')
     
     # Set y-limits for score panels
     ax[0, 1].set_ylim((0, 1))
