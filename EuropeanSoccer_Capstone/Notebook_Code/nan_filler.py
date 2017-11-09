@@ -75,7 +75,22 @@ def fill_nan_home_team_win_rate_all_time(match_df, full_df):
     return mean_home_win_rate
 
 '''
-Function to fill nan for the home team's ALL TIME HOME RECORD
+Function to fill nan for the home team's ALL TIME HOME DRAWS
+'''
+
+def fill_nan_home_team_draw_rate_all_time(match_df, full_df):
+  value = match_df['HOME_DRAW_RATE']
+  if not np.isnan(value):
+    return value
+  else:
+    # Find average
+    all_home_matches = full_df[(full_df['home_team_api_id']==
+                                match_df['home_team_api_id'])]
+    mean_draw_rate = all_home_matches['HOME_DRAW_RATE'].mean(skipna=True)
+    return mean_draw_rate
+
+'''
+Function to fill nan for the away team's ALL TIME AWAY RECORD
 '''
 
 def fill_nan_away_team_win_rate_all_time(match_df, full_df):
@@ -88,6 +103,22 @@ def fill_nan_away_team_win_rate_all_time(match_df, full_df):
                                     match_df['away_team_api_id'])]
     mean_away_win_rate = all_away_matches['AWAY_WIN_RATE'].mean(skipna=True)
     return mean_away_win_rate
+
+
+'''
+Function to fill nan for the away team's ALL TIME AWAY DRAWS
+'''
+
+def fill_nan_away_team_draw_rate_all_time(match_df, full_df):
+  value = match_df['AWAY_DRAW_RATE']
+  if not np.isnan(value):
+    return value
+  else:
+    # Find average
+    all_away_matches = full_df[(full_df['away_team_api_id']==
+                                match_df['away_team_api_id'])]
+    mean_away_draw_rate = all_away_matches['AWAY_DRAW_RATE'].mean(skipna=True)
+    return mean_away_draw_rate
 
 
 '''
@@ -113,6 +144,28 @@ def fill_nan_away_team_win_rate_this_season(match_df, full_df):
 
 
 '''
+Function to fill nan for the away team's draw record THIS SEASON
+'''
+
+def fill_nan_away_team_draw_rate_this_season(match_df, full_df):
+  value = match_df['AWAY_DRAW_RATE_THIS_SEASON']
+  if not np.isnan(value):
+    return value
+  else:
+    # Find average
+    all_away_matches_this_season = full_df[(full_df['away_team_api_id']==
+                                            match_df['away_team_api_id']) &
+                                           (full_df['season']==
+                                            match_df['season'])]
+    mean_away_draw_rate = all_away_matches_this_season['AWAY_WIN_RATE_THIS_SEASON'].mean(skipna=True)
+    if np.isnan(mean_away_draw_rate):
+      all_away_matches = full_df[(full_df['away_team_api_id']==
+                                  match_df['away_team_api_id'])]
+      mean_away_draw_rate = all_away_matches['AWAY_DRAW_RATE_THIS_SEASON'].mean(skipna=True)
+    return mean_away_draw_rate
+
+
+'''
 Function to fill nan for the home team's home record THIS SEASON
 '''
 
@@ -128,6 +181,26 @@ def fill_nan_home_team_win_rate_this_season(match_df, full_df):
                                             match_df['season'])]
     mean_home_win_rate = all_home_matches_this_season['HOME_WIN_RATE_THIS_SEASON'].mean(skipna=True)
     return mean_home_win_rate
+
+
+
+'''
+Function to fill nan for the home team's draw record THIS SEASON
+'''
+
+def fill_nan_home_team_draw_rate_this_season(match_df, full_df):
+  value = match_df['HOME_DRAW_RATE_THIS_SEASON']
+  if not np.isnan(value):
+    return value
+  else:
+    # Find average
+    all_home_matches_this_season = full_df[(full_df['home_team_api_id']==
+                                            match_df['home_team_api_id']) &
+                                           (full_df['season']==
+                                            match_df['season'])]
+    mean_home_draw_rate = all_home_matches_this_season['HOME_DRAW_RATE_THIS_SEASON'].mean(skipna=True)
+    return mean_home_draw_rate
+
 
 '''
 Function to fill nan for the away team's ALL TIME AWAY RECORD at this ground
@@ -149,6 +222,29 @@ def fill_nan_away_team_win_rate_all_time_at_this_ground(match_df, full_df):
       all_away_matches = full_df[(full_df['away_team_api_id']==
                                   match_df['away_team_api_id'])]
       mean_away_win_rate = all_away_matches['AWAY_WIN_RATE'].mean(skipna=True)
+    return mean_away_win_rate
+
+
+'''
+Function to fill nan for the away team's ALL TIME AWAY RECORD at this ground
+'''
+
+def fill_nan_away_team_draw_rate_all_time_at_this_ground(match_df, full_df):
+  value = match_df['AWAY_DRAW_RATE_AT_THIS_GROUND']
+  if not np.isnan(value):
+    return value
+  else:
+    # Find average
+    all_away_matches_at_this_ground = full_df[(full_df['away_team_api_id']==
+                                               match_df['away_team_api_id']) &
+                                              (full_df['home_team_api_id']==
+                                               match_df['home_team_api_id'])]
+
+    mean_away_win_rate = all_away_matches_at_this_ground['AWAY_DRAW_RATE_AT_THIS_GROUND'].mean(skipna=True)
+    if np.isnan(mean_away_win_rate):
+      all_away_matches = full_df[(full_df['away_team_api_id']==
+                                  match_df['away_team_api_id'])]
+      mean_away_win_rate = all_away_matches['AWAY_DRAW_RATE'].mean(skipna=True)
     return mean_away_win_rate
 
 '''
