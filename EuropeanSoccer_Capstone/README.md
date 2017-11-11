@@ -8,9 +8,9 @@ European football, using the dataset at [European Soccer Database](https://www.k
 * [Notebook for match outcome prediction](Notebook_Code/Match_outcome_prediction.ipynb)
 * [Notebook for Players' clustering mini project](Notebook_Code/Players_clustering.ipynb)
 
-Please note that as the data is huge, I would not advise running the whole notebook at once. Some of the code cells are merely 
-for demonstrative purposes, i.e. they do work; however a lot of the results were generated and saved into files. See the section 
-Data Structures below for information on the files.
+Please note that as the data is huge, I would not advise running the whole notebook at once. Some of the code cells are merely for demonstrative purposes, i.e. they work if you run them but the code if executed will take a long time, especially in the sections on feature generation.
+
+Most of the results were generated and saved into files; in order to make code cells independent. Even then, some code cells rely on dependencies from code cells above them, so if a code cells complains about a variable/import, please search and run for that variable/dependency.
 
 ### Data_Structures
 This folder contains the .csv files with feature data; and also intermediate feature files. These files are used by the notebooks
