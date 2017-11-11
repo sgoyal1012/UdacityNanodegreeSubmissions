@@ -31,3 +31,13 @@ Folder containing the project proposal and related files.
 
 ### Final Report
 Folder containing the final project report and related files.
+
+
+## Acknowledgement
+I would like to acknowledge the following sources:
+
+* I used the code corresponding to the *visuals.py* file in both of the *Charity ML* and *Customer Segments* project.
+
+* Code from the above mentioned projects to run classifiers, clustering and draw results.
+
+* Some code from sklearn, for example the *the confusion matrix* code available online on sklearn to draw the confusion matrices.
