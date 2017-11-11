@@ -1,4 +1,4 @@
-##European Soccer Capstone Project
+## European Soccer Capstone Project
 
 My submission to udacity's machine learning engineer nanodegree course. The project analyses the prediction of matches in
 European football, using the dataset at [European Soccer Database](https://www.kaggle.com/hugomathien/soccer).
